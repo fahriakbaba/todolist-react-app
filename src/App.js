@@ -1,48 +1,52 @@
 import React from 'react';
-import './App.css';
+import List from './components/List';
+//import Alert from './components/Alert';
 
 
 function App() {
   const [name, setName] = React.useState("");
   const [list, setList] = React.useState([]);
-
-{/*
-  const [editID, setEditID] = React.useState(null);
   const [isEditing, setIsEditing] = React.useState(false);
-  const [alert, setAlert] = React.useState({ show: false, msg: "", type: "" })
-*/}
+  //const [editID, setEditID] = React.useState(null); 
+  //const [alert, setAlert] = React.useState({ show: false, msg: "", type: "" })
+ 
 
 
   function handleSubmit(e) {
     e.preventDefault();
-    if(!name) {
+    if (!name) {
       alert("Please, enter your duty!")
     } else {
-      setList(prevState => ([...prevState, {id: Date.now().toString(), name:name}]))
+      setList(prevState => ([...prevState, { id: Date.now().toString(), name: name }]))
+      setName("");
     }
   }
-
-  console.log(list)
+ 
+  function removeItem(id) {
+    setList(list.filter(item => item.id !== id));
+  }
 
   return (
     <div className="App">
       <section className='container'>
         <form className='todolist-form' onSubmit={handleSubmit}>
-          <label htmlFor="todolist-input">to do list</label>
-          <input 
-            type="text" 
-            placeholder='Enter a duty' 
-            className='todolist-input' 
-            id='todolist-input' 
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-          />
-          <button type='submit' className='todolist-btn'>submit</button>
+          {/* <Alert /> */}
+          <h3 className="todolist-header">What's the Plan for today?</h3>
+          <div className="form-control">
+            <input
+              type="text"
+              placeholder='Enter a duty'
+              className='input'
+              id='todolist-input'
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+            />
+            <button type='submit' className='btn'>{isEditing ? "Edit" : "Submit"}</button>
+          </div>
         </form>
         <div className="list-container">
-          list container
+          <List list={list} removeItem={removeItem} />
         </div>
-  
       </section>
     </div>
   );
