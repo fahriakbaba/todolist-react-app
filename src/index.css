@@ -14,6 +14,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background-color: #F1F5F8;
   font-size: 16px;
+  font-style: italic;
 }
 .App {
   display: flex;
@@ -25,7 +26,7 @@ body {
 .container {
   display: flex;
   flex-direction: column;
-  width: 35%;
+  width: 50%;
   background-color: #FFFFFF;
   padding: 24px 36px;
   border-radius: 8px;
@@ -72,6 +73,7 @@ body {
   border: 2px solid #49A6E9;
   transition: all .7s;
   cursor: pointer;
+  font-style: italic;
 }
 .btn:hover {
   color: #49A6E9;
@@ -83,7 +85,7 @@ body {
   padding: 4px 16px;
   border-radius: 4px;
   font-size: 1rem;
-  font-style: normal;
+  font-style: italic;
   text-transform: capitalize;
 }
 .list-item:hover {
@@ -141,12 +143,45 @@ hr {
   margin: -10px auto 15px auto;
   opacity: .6;
 }
-.alert {
-  padding: 3px 16px;
-  text-align: center;
-  text-transform: capitalize;
-}
-.alert-danger {
-  background-color: red;
-  color: white;
+
+/* media query */
+@media (min-width: 600px) and (max-width: 1230px) {
+  .container {
+    width: 60%;
+  }
+  .todolist-form {
+    margin-bottom: 24px;
+  }
+  .todolist-header {
+    text-align: center;
+    font-size: 1.6rem;
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+  }
+  .input {
+    flex: 8;
+    padding: 8px 8px;
+  }
+  .input:focus {
+    border: 2px solid #49A6E9;
+  }
+  .btn {
+    flex: 1;
+    padding: 8px 8px;
+  }
+  .list-item {
+    padding: 3px 12px;
+    font-size: .9rem;
+  }
+  .edit-btn {
+    font-size: .9rem;
+  }
+  .delete-btn {
+    font-size: .8rem;
+  }
+  .clear-btn {
+    padding: 2px 6px;
+    border: 1px solid red;
+    font-weight: 500;
+  }  
 }
