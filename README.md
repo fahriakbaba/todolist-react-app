@@ -3,6 +3,8 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+İf you can access live demo of this project, you should click [this link](https://fahriakbaba-react-todolist.netlify.app/)
+
 ## Available Scripts
 
 In the project directory, you can run:
